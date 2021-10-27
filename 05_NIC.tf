@@ -7,7 +7,7 @@ resource "azurerm_public_ip" "pub-ip" {
   tags = {
     environment = "Production"
   }
-}#public ip
+}#public ip create
 
 resource "azurerm_network_interface" "hem-NI" {
   name                = "hem-nic"
@@ -19,6 +19,6 @@ resource "azurerm_network_interface" "hem-NI" {
     subnet_id                     = azurerm_subnet.hem-pub1.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.pub-ip.id
-    #public ip
+    #public ip push
   }
 }#network interface
