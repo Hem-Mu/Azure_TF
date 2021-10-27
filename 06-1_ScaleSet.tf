@@ -35,6 +35,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "scaleset" {
       name      = "hem-ip" 
       primary   = true # 뭐임?
       subnet_id = azurerm_subnet.hem-pri1.id
+      load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.backend.id] #
     }
 }
 /*
