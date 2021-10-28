@@ -1,9 +1,9 @@
-resource "azurerm_subnet" "hem-AzureBastionSubnet" {
-  name                 = "AzureBastionSubnet"
-  resource_group_name  = azurerm_resource_group.hem-rg.name
-  virtual_network_name = azurerm_virtual_network.hem-vpn.name
-  address_prefixes     = ["10.0.100.0/24"]
-}# AzureBastion
+# resource "azurerm_subnet" "hem-AzureBastionSubnet" {
+#   name                 = "AzureBastionSubnet"
+#   resource_group_name  = azurerm_resource_group.hem-rg.name
+#   virtual_network_name = azurerm_virtual_network.hem-vpn.name
+#   address_prefixes     = ["10.0.100.0/24"]
+# }# AzureBastion
 resource "azurerm_subnet" "hem-pub1" {
   name                 = "pub1"
   resource_group_name  = azurerm_resource_group.hem-rg.name

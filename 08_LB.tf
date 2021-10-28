@@ -9,7 +9,8 @@ resource "azurerm_lb" "lb" {
   name                = "testlb"
   location            = "Korea Central"
   resource_group_name = azurerm_resource_group.hem-rg.name
-  sku = "Standard" # Standard , Basic
+  sku                 = "Basic" # Standard , Basic(Default)
+  sku_tier            = "Regional" # Regional(Basic), Global
 
   frontend_ip_configuration {
     name                 = "LB-front-ip"
