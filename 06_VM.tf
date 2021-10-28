@@ -1,7 +1,7 @@
 # resource "azurerm_linux_virtual_machine" "vm" {
 #   name                = "tf-test"
-#   resource_group_name = azurerm_resource_group.hem_RG.name
-#   location            = azurerm_resource_group.hem_RG.location
+#   resource_group_name = azurerm_resource_group.hem-rg.name
+#   location            = azurerm_resource_group.hem-rg.location
 #   size                = "Standard_D2s_v3"
 #   admin_username      = "azureuser"
 #   network_interface_ids = [

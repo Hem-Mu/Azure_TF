@@ -1,14 +1,14 @@
 resource "azurerm_public_ip" "lb-ip" {
   name                = "LB-ip"
   location            = "Korea Central"
-  resource_group_name = azurerm_resource_group.hem_RG.name
+  resource_group_name = azurerm_resource_group.hem-rg.name
   allocation_method   = "Static"
 }# LB ip create
 
 resource "azurerm_lb" "lb" {
   name                = "testlb"
   location            = "Korea Central"
-  resource_group_name = azurerm_resource_group.hem_RG.name
+  resource_group_name = azurerm_resource_group.hem-rg.name
 
   frontend_ip_configuration {
     name                 = "LB-front-ip"
@@ -22,14 +22,14 @@ resource "azurerm_lb_backend_address_pool" "backend" {
 }# Backend
 
 resource "azurerm_lb_probe" "lb-probe" {
- resource_group_name = azurerm_resource_group.hem_RG.name
+ resource_group_name = azurerm_resource_group.hem-rg.name
  loadbalancer_id     = azurerm_lb.lb.id
  name                = "http-running-probe"
  port                = 80
 }
 
 resource "azurerm_lb_rule" "lbnatrule" {
-   resource_group_name            = azurerm_resource_group.hem_RG.name
+   resource_group_name            = azurerm_resource_group.hem-rg.name
    loadbalancer_id                = azurerm_lb.lb.id
    name                           = "http"
    protocol                       = "Tcp"

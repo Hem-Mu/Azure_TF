@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "hem_RG" {
+resource "azurerm_resource_group" "hem-rg" {
   name     = "hem-resources"
   location = "Korea Central"
-}#setting resource group
+}# setting resource group

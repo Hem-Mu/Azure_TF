@@ -1,7 +1,7 @@
 resource "azurerm_public_ip" "pub-ip" {
   name                = "pub-ip"
-  resource_group_name = azurerm_resource_group.hem_RG.name
-  location            = azurerm_resource_group.hem_RG.location
+  resource_group_name = azurerm_resource_group.hem-rg.name
+  location            = azurerm_resource_group.hem-rg.location
   allocation_method   = "Static"
 
   tags = {
@@ -11,8 +11,8 @@ resource "azurerm_public_ip" "pub-ip" {
 
 resource "azurerm_network_interface" "hem-NI" {
   name                = "hem-nic"
-  location            = azurerm_resource_group.hem_RG.location
-  resource_group_name = azurerm_resource_group.hem_RG.name
+  location            = azurerm_resource_group.hem-rg.location
+  resource_group_name = azurerm_resource_group.hem-rg.name
 
   ip_configuration {
     name                          = "pub-ip"
