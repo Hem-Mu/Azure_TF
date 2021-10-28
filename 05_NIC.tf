@@ -3,10 +3,6 @@ resource "azurerm_public_ip" "pub-ip" {
   resource_group_name = azurerm_resource_group.hem-rg.name
   location            = azurerm_resource_group.hem-rg.location
   allocation_method   = "Static"
-
-  tags = {
-    environment = "Production"
-  }
 }#public ip create
 
 resource "azurerm_network_interface" "hem-NI" {

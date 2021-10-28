@@ -27,7 +27,7 @@ resource "azurerm_mysql_database" "hem-db" {
   name                = "hem-db"
   resource_group_name = azurerm_resource_group.hem-rg.name
   server_name         = azurerm_mysql_server.hem-db-server.name
-  charset             = "utf8"
+  charset             = "utf8" # incoding
   collation           = "utf8_unicode_ci"
 } # setting DB
 resource "azurerm_mysql_firewall_rule" "hem-db-fw" {

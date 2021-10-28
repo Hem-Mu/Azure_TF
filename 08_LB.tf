@@ -3,12 +3,13 @@ resource "azurerm_public_ip" "lb-ip" {
   location            = "Korea Central"
   resource_group_name = azurerm_resource_group.hem-rg.name
   allocation_method   = "Static"
-}# LB ip create
+}# frontend ip create
 
 resource "azurerm_lb" "lb" {
   name                = "testlb"
   location            = "Korea Central"
   resource_group_name = azurerm_resource_group.hem-rg.name
+  sku = "Standard" # Standard , Basic
 
   frontend_ip_configuration {
     name                 = "LB-front-ip"
