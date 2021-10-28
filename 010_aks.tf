@@ -13,8 +13,4 @@ resource "azurerm_kubernetes_cluster" "aks" {
   identity {
     type = "SystemAssigned"
   }
-
-  tags = {
-    Environment = "Production"
-  }
 }
