@@ -18,7 +18,7 @@ resource "azurerm_mysql_server" "hem-db-server" {
   backup_retention_days             = 7 # 7 ~ 35
   auto_grow_enabled                 = false # storage auto grow
   geo_redundant_backup_enabled      = false # not supported for Basic
-  infrastructure_encryption_enabled = false #data encryption
+  infrastructure_encryption_enabled = false # data encryption
   public_network_access_enabled     = true
   ssl_enforcement_enabled           = false # ssl
 #  ssl_minimal_tls_version_enforced  = "TLS1_2"
