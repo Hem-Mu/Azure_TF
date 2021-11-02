@@ -5,7 +5,7 @@ resource "azurerm_kubernetes_cluster" "hem-aks" {
   dns_prefix          = "example-aks1"
 
   linux_profile {
-        admin_username = "azureuser"
+        admin_username = var.ssh_name
 
         ssh_key {
             key_data = file(var.ssh_path)
