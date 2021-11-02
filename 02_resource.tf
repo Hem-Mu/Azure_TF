@@ -1,4 +1,4 @@
 resource "azurerm_resource_group" "hem-rg" {
   name     = "Hem-resources"
-  location = "Korea Central"
+  location = var.region
 }# setting resource group

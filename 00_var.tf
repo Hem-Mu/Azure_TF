@@ -1,3 +1,7 @@
+variable "region" {
+  type = string
+  default = "Korea Central"
+}
 variable "db_admin" {
   type = string
   default = "hamster"

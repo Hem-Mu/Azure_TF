@@ -1,13 +1,13 @@
 resource "azurerm_public_ip" "lb-ip" {
   name                = "LB-ip"
-  location            = "Korea Central"
+  location            = var.region
   resource_group_name = azurerm_resource_group.hem-rg.name
   allocation_method   = "Static"
 }# frontend ip create
 
 resource "azurerm_lb" "lb" {
   name                = "testlb"
-  location            = "Korea Central"
+  location            = var.region
   resource_group_name = azurerm_resource_group.hem-rg.name
   sku                 = "Basic" # Standard , Basic(Default)
   sku_tier            = "Regional" # Regional(Basic), Global
