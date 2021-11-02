@@ -31,5 +31,5 @@ resource "azurerm_kubernetes_cluster_node_pool" "example" {
   name                  = "internal"
   kubernetes_cluster_id = azurerm_kubernetes_cluster.hem-aks.id
   vm_size               = "Standard_DS2_v2"
-  node_count            = 1 #node pool 개수
+  node_count            = 1 #node pool의 개수
 } # setting nodepool
