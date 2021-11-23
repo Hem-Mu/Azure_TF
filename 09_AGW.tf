@@ -34,7 +34,7 @@ resource "azurerm_application_gateway" "agw" {
 
     frontend_ip_configuration {
     name                 = "front_ip"
-    public_ip_address_id = azurerm_public_ip.agw-ip.id #frontend ip
+    public_ip_address_id = azurerm_public_ip.agw-ip.id # frontend ip
     }
 
     backend_address_pool {
@@ -54,7 +54,13 @@ resource "azurerm_application_gateway" "agw" {
     frontend_ip_configuration_name = "front_ip"
     frontend_port_name             = "httpPort"
     protocol                       = "Http"
+    # ssl_certificate_name = "Hemcert"
     }
+    # ssl_certificate{
+    #     name = "cert"
+    #     data = 
+    #     password ="it1"
+    # }
 
     request_routing_rule {
     name                       = "request_routing_rule"
