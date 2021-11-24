@@ -51,6 +51,11 @@ resource "azurerm_kubernetes_cluster" "hem-aks" {
       enabled = true
       gateway_id = azurerm_application_gateway.agw.id
     } # agw attach
+
+    oms_agent {
+      enabled = true
+      log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+    } # monitor
   } 
 
   service_principal {
@@ -58,7 +63,7 @@ resource "azurerm_kubernetes_cluster" "hem-aks" {
     client_secret = var.aks_service_principal_client_secret
   } # Cluster ID
 
-  depends_on = [azurerm_virtual_network.hem-vnet, azurerm_application_gateway.agw]
+  depends_on = [azurerm_log_analytics_workspace.law, azurerm_virtual_network.hem-vnet, azurerm_application_gateway.agw]
 }
 
 resource "azurerm_role_assignment" "ra1" {
