@@ -25,7 +25,7 @@ resource "azurerm_kubernetes_cluster" "hem-aks" {
     type       = "VirtualMachineScaleSets"
     enable_auto_scaling = true
     max_count = "10" # autoscaling max nodes
-    min_count = "1" # autoscaling min nodes
+    min_count = "2" # autoscaling min nodes
     vnet_subnet_id = azurerm_subnet.hem-pub[0].id # azure CNI subnet
   } # setting nodepool
 
