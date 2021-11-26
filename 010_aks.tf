@@ -21,7 +21,7 @@ resource "azurerm_kubernetes_cluster" "hem-aks" {
   default_node_pool {
     name       = "node"
     # node_count = 2 # node number
-    vm_size    = "Standard_D2_v2"
+    vm_size    = "Standard_D3_v2"
     type       = "VirtualMachineScaleSets"
     enable_auto_scaling = true
     max_count = "10" # autoscaling max nodes
@@ -92,4 +92,10 @@ resource "azurerm_role_assignment" "ra4" {
     role_definition_name = "Reader"
     principal_id         = azurerm_user_assigned_identity.identity.principal_id
     depends_on           = [azurerm_user_assigned_identity.identity, azurerm_application_gateway.agw]
+}
+resource "azurerm_role_assignment" "ra5" {
+    scope                = azurerm_container_registry.acr.id
+    role_definition_name = "AcrPull"
+    principal_id         = var.aks_service_principal_object_id
+    
 }

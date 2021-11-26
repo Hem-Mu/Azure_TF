@@ -6,7 +6,7 @@ resource "azurerm_mysql_server" "hem-db-server" {
   administrator_login          = var.db_admin # db admin id
   administrator_login_password = var.db_password # db password
 
-  sku_name   = "B_Gen5_1" #compute + storage
+  sku_name   = "B_Gen5_2" # storage + cpu  
   /*
   B_Gen4_1 B_Gen4_2 B_Gen5_1 B_Gen5_2 
   GP_Gen4_2 GP_Gen4_4 GP_Gen4_8 GP_Gen4_16 GP_Gen4_32 GP_Gen5_2 GP_Gen5_4 GP_Gen5_8 GP_Gen5_16 GP_Gen5_32 GP_Gen5_64 

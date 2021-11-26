@@ -1,0 +1,8 @@
+resource "azurerm_container_registry" "acr" {
+  name                = "hemgistry"
+  resource_group_name = azurerm_resource_group.hem-rg.name
+  location            = azurerm_resource_group.hem-rg.location
+  sku                 = "Basic"
+  admin_enabled       = true
+}
+# az aks update -n terraform-aks -g hem-resources --attach-acr hemgistry
