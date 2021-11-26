@@ -19,7 +19,7 @@ resource "azurerm_application_gateway" "agw" {
 
     gateway_ip_configuration {
     name      = "appGatewayIpConfig"
-    subnet_id = azurerm_subnet.hem-pub[1].id # frontend subnet
+    subnet_id = azurerm_subnet.agw-sub.id # frontend subnet
     }
 
     frontend_port {
