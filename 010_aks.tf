@@ -27,15 +27,16 @@ resource "azurerm_kubernetes_cluster" "hem-aks" {
     max_count = "10" # autoscaling max nodes
     min_count = "2" # autoscaling min nodes
     vnet_subnet_id = azurerm_subnet.aks-sub.id # azure CNI subnet
+    max_pods = 30
   } # setting nodepool
 
   network_profile {
     load_balancer_sku = "Standard"
     network_plugin = "azure" # CNI
     network_policy = "calico"
-    service_cidr = "10.0.0.0/16"
+    service_cidr = "10.0.0.0/27"
     docker_bridge_cidr = "172.17.0.1/16"
-    dns_service_ip = "10.0.10.0"
+    dns_service_ip = "10.0.0.2"
   }
 
   role_based_access_control {

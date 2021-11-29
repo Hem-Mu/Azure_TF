@@ -42,17 +42,17 @@ single IP --> start ip = end ip
 IP range --> start ip ~ end ip
 All allow --> 0.0.0.0 255.255.255.255
 */
-resource "azurerm_private_endpoint" "endpoint" {
-  name                = "db-endpoint"
-  location            = azurerm_resource_group.hem-rg.location
-  resource_group_name = azurerm_resource_group.hem-rg.name
-  subnet_id           = azurerm_subnet.db-sub.id
-  depends_on = [azurerm_mysql_server.hem-db-server]
+# resource "azurerm_private_endpoint" "endpoint" {
+#   name                = "db-endpoint"
+#   location            = azurerm_resource_group.hem-rg.location
+#   resource_group_name = azurerm_resource_group.hem-rg.name
+#   subnet_id           = azurerm_subnet.db-sub.id
+#   depends_on = [azurerm_mysql_server.hem-db-server]
 
-  private_service_connection {
-    name                           = "private-db"
-    private_connection_resource_id = azurerm_mysql_server.hem-db-server.id
-    is_manual_connection           = false
-    subresource_names = ["mysqlServer"] # subresource name
-  }
-}
+#   private_service_connection {
+#     name                           = "private-db"
+#     private_connection_resource_id = azurerm_mysql_server.hem-db-server.id
+#     is_manual_connection           = false
+#     subresource_names = ["mysqlServer"] # subresource name
+#   }
+# }
