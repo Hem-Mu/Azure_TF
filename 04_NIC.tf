@@ -17,4 +17,5 @@ resource "azurerm_network_interface" "hem-NI" {
     public_ip_address_id = azurerm_public_ip.jen-ip.id
     #public ip insert
   }
+  depends_on = [azurerm_public_ip.jen-ip]
 }#network interface

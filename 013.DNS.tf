@@ -7,7 +7,7 @@ resource "azurerm_dns_a_record" "hamstercave" {
   zone_name           = azurerm_dns_zone.dns-zone.name
   resource_group_name = azurerm_resource_group.hem-rg.name
   ttl                 = 300
-  records             = ["20.200.225.169"]
+  records             = ["20.196.225.175"]
 }
 resource "azurerm_dns_txt_record" "txt" {
   name                = "_acme-challenge"
