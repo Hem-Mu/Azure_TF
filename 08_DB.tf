@@ -6,10 +6,10 @@ resource "azurerm_mysql_server" "hem-db-server" {
   administrator_login          = var.db_admin # db admin id
   administrator_login_password = var.db_password # db password
 
-  sku_name   = "B_Gen5_2" # storage + cpu  
+  sku_name   = "GP_Gen5_4" # storage + cpu  
   /*
-  B_Gen4_1 B_Gen4_2 B_Gen5_1 B_Gen5_2 
-  GP_Gen4_2 GP_Gen4_4 GP_Gen4_8 GP_Gen4_16 GP_Gen4_32 GP_Gen5_2 GP_Gen5_4 GP_Gen5_8 GP_Gen5_16 GP_Gen5_32 GP_Gen5_64 
+  B_Gen4_1 B_Gen4_2 / B_Gen5_1 B_Gen5_2 
+  GP_Gen4_2 GP_Gen4_4 GP_Gen4_8 GP_Gen4_16 GP_Gen4_32 / GP_Gen5_2 GP_Gen5_4 GP_Gen5_8 GP_Gen5_16 GP_Gen5_32 GP_Gen5_64 
   MO_Gen5_2 MO_Gen5_4 MO_Gen5_8 MO_Gen5_16 MO_Gen5_32
   */
   storage_mb = 5120 # 1GB = 1024
@@ -42,3 +42,17 @@ single IP --> start ip = end ip
 IP range --> start ip ~ end ip
 All allow --> 0.0.0.0 255.255.255.255
 */
+resource "azurerm_private_endpoint" "endpoint" {
+  name                = "db-endpoint"
+  location            = azurerm_resource_group.hem-rg.location
+  resource_group_name = azurerm_resource_group.hem-rg.name
+  subnet_id           = azurerm_subnet.db-sub.id
+  depends_on = [azurerm_mysql_server.hem-db-server]
+
+  private_service_connection {
+    name                           = "private-db"
+    private_connection_resource_id = azurerm_mysql_server.hem-db-server.id
+    is_manual_connection           = false
+    subresource_names = ["mysqlServer"] # subresource name
+  }
+}
